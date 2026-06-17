@@ -1,0 +1,37 @@
+a {
+    text-decoration: none;
+}
+
+.line{
+    color: white;
+    margin-left: 0;
+    width: 1990px;
+}
+.title{
+    margin-top: 36px;
+    margin-left: 36px;
+    margin-bottom: 36px;
+    font-size: 32px;
+    font-weight: Bold;
+    color: white;
+}
+
+.square{
+
+    margin-top: 47px;
+    margin-left: 268px;
+
+    width: 562px;
+    height: 833px;
+
+    border: 2px solid white;
+    background-color: black;
+}
+
+.application{
+
+    font-size: 64px;
+    font-weight: Bold;
+
+    color: white;
+}

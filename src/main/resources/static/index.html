@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>체육대회 신청 시스템</title>
+</head>
+
+<link rel="stylesheet" href="/css/css.css">
+<script src="/js/index_js.js"></script>
+
+</body>
+</html><!DOCTYPE html><html class="dark" lang="ko" style="width: 1280px; height: 1024px; overflow: hidden; position: relative;"><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Sports Day Pro - Application</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@700;800&amp;family=JetBrains+Mono:wght@600&amp;family=Lexend:wght@400&amp;display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#ffdad6",
+                        "inverse-on-surface": "#313030",
+                        "outline-variant": "#3a4a43",
+                        "on-secondary-fixed-variant": "#334284",
+                        "tertiary-fixed-dim": "#91db37",
+                        "on-tertiary-container": "#427000",
+                        "on-primary-fixed": "#002116",
+                        "inverse-primary": "#006c50",
+                        "on-primary-container": "#007255",
+                        "on-error": "#690005",
+                        "background": "#131313",
+                        "on-tertiary": "#1e3700",
+                        "on-tertiary-fixed": "#0f2000",
+                        "on-surface-variant": "#b9cbc1",
+                        "surface-container-low": "#1c1b1b",
+                        "primary-fixed": "#36ffc4",
+                        "surface": "#131313",
+                        "on-background": "#e5e2e1",
+                        "primary": "#fbfffa",
+                        "surface-bright": "#393939",
+                        "secondary-container": "#354487",
+                        "on-primary": "#003828",
+                        "secondary": "#b9c3ff",
+                        "on-secondary-container": "#a6b4ff",
+                        "error-container": "#93000a",
+                        "on-surface": "#e5e2e1",
+                        "primary-container": "#00ffc2",
+                        "on-tertiary-fixed-variant": "#2e4f00",
+                        "surface-variant": "#353534",
+                        "surface-tint": "#00e1ab",
+                        "surface-container-high": "#2a2a2a",
+                        "on-secondary-fixed": "#001356",
+                        "secondary-fixed-dim": "#b9c3ff",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-secondary": "#1a2a6c",
+                        "error": "#ffb4ab",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary-container": "#abf752",
+                        "surface-container-highest": "#353534",
+                        "tertiary": "#fefff4",
+                        "outline": "#83958c",
+                        "primary-fixed-dim": "#00e1ab",
+                        "on-primary-fixed-variant": "#00513c",
+                        "surface-dim": "#131313",
+                        "surface-container": "#201f1f",
+                        "secondary-fixed": "#dde1ff",
+                        "tertiary-fixed": "#abf853"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-md": "24px",
+                        "base": "8px",
+                        "gutter": "16px",
+                        "stack-lg": "48px",
+                        "stack-sm": "12px",
+                        "container-margin": "24px"
+                    },
+                    "fontFamily": {
+                        "label-caps": [
+                            "JetBrains Mono"
+                        ],
+                        "display-lg": [
+                            "Anybody"
+                        ],
+                        "headline-md": [
+                            "Anybody"
+                        ],
+                        "body-lg": [
+                            "Lexend"
+                        ],
+                        "display-lg-mobile": [
+                            "Anybody"
+                        ],
+                        "body-md": [
+                            "Lexend"
+                        ]
+                    },
+                    "fontSize": {
+                        "label-caps": [
+                            "12px",
+                            {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.1em",
+                                "fontWeight": "600"
+                            }
+                        ],
+                        "display-lg": [
+                            "48px",
+                            {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "800"
+                            }
+                        ],
+                        "headline-md": [
+                            "24px",
+                            {
+                                "lineHeight": "32px",
+                                "fontWeight": "700"
+                            }
+                        ],
+                        "body-lg": [
+                            "18px",
+                            {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "display-lg-mobile": [
+                            "36px",
+                            {
+                                "lineHeight": "42px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "800"
+                            }
+                        ],
+                        "body-md": [
+                            "16px",
+                            {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                            }
+                        ]
+                    }
+                },
+            },
+        }
+
+        fetch('http://localhost:8080/students')
+            .then(response => response.json())
+            .then(data => {
+                const tbody = document.getElementById('studentList');
+                data.forEach(student => {
+                    const row = `
+                    <tr>
+                        <td>${student.studentId}</td>
+                        <td>${student.name}</td>
+                        <td>${student.stdNum}</td>
+                        <td>${student.gender}</td>
+                        <td>${student.grade}</td>
+                        <td>${student.classNum}</td>
+                        <td>${student.num}</td>
+                    </tr>
+                `;
+                    tbody.innerHTML += row;
+                });
+            });
+    </script>
+</head>
+<body class="antialiased font-body-md text-body-md bg-background text-on-background flex h-screen w-full overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 bg-surface-container border-r border-surface-container-high h-full flex flex-col hidden md:flex shrink-0">
+    <div class="p-stack-md">
+        <span class="text-headline-md font-headline-md font-extrabold text-primary-container">Sports Day Pro</span>
+    </div>
+    <nav class="flex-1 px-stack-sm flex flex-col gap-2">
+        <a class="bg-primary-container/10 text-primary-container px-4 py-3 rounded-lg font-bold flex items-center gap-3" href="#">
+            <span class="material-symbols-outlined">edit_document</span>
+            종목 신청
+        </a>
+        <a class="text-on-surface-variant hover:text-primary-container hover:bg-surface-container-high px-4 py-3 rounded-lg transition-colors flex items-center gap-3" href="#">
+            <span class="material-symbols-outlined">fact_check</span>
+            신청 확인
+        </a>
+    </nav>
+</aside>
+<div class="flex-1 flex flex-col h-full overflow-hidden relative">
+    <!-- Topbar (Mobile Hamburger & Desktop Actions) -->
+    <header class="bg-surface shadow-sm w-full z-50 flex justify-between md:justify-end items-center px-container-margin h-16 transition-colors border-b border-surface-container-high shrink-0">
+        <div class="flex items-center gap-stack-md md:hidden">
+            <span class="text-headline-md font-headline-md font-extrabold text-primary-container">Sports Day</span>
+        </div>
+        <div class="flex items-center gap-stack-sm">
+            <button onclick="location.href='add_sport.html'" class="flex items-center justify-center bg-primary-container text-on-primary-container font-bold py-2 px-4 rounded-full shadow-[0px_4px_12px_rgba(0,255,194,0.2)] hover:bg-primary-fixed-dim active:scale-95 transition-transform">
+                <span class="material-symbols-outlined mr-base">add</span>
+                종목 추가
+            </button>
+        </div>
+    </header>
+    <!-- Main Content Canvas -->
+    <main class="flex-1 overflow-y-auto max-w-7xl mx-auto w-full px-gutter md:px-container-margin py-stack-md md:py-stack-lg flex flex-col gap-stack-md">
+        <!-- Header Section -->
+        <div class="flex justify-between items-end mb-stack-sm">
+            <div>
+                <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-base">종목 신청</h1>
+                <p class="text-on-surface-variant text-body-lg">원하는 스포츠 종목을 선택하고 팀을 구성하세요.</p>
+            </div>
+        </div>
+        <!-- Event Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-stack-sm md:gap-stack-md items-start">
+            <!-- Active Expanded Card: Soccer -->
+            <article class="bg-surface-container-low rounded-xl p-stack-md shadow-[0px_4px_20px_rgba(0,0,0,0.2)] border border-primary-container transition-colors col-span-1 md:col-span-2 lg:col-span-3">
+                <div class="flex items-center gap-4 mb-stack-md">
+                    <div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center text-on-primary-container">
+                        <span class="material-symbols-outlined text-xl">sports_soccer</span>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <h2 class="font-headline-md text-headline-md text-on-background">축구 (남자부)</h2>
+                            <span class="bg-surface-container-high text-on-surface px-2 py-1 rounded-full font-label-caps text-label-caps">오전 10:00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-surface-container rounded-lg p-stack-sm mb-stack-md">
+                    <div class="flex gap-6 mb-stack-sm border-b border-surface-container-high pb-3">
+                        <label class="flex items-center gap-2 cursor-pointer text-primary-container">
+                            <input checked="" class="text-primary-container focus:ring-primary-container bg-surface-container-high border-outline" name="team_mode" type="radio">
+                            <span class="font-bold">팀 추가 (Add Team)</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer text-on-surface-variant">
+                            <input class="text-primary-container focus:ring-primary-container bg-surface-container-high border-outline" name="team_mode" type="radio">
+                            <span class="">팀 선택 (Select Team)</span>
+                        </label>
+                    </div>
+                    <div class="mb-stack-sm pt-2">
+                        <label class="block text-sm font-medium text-on-surface-variant mb-2">팀 이름</label>
+                        <input class="w-full bg-surface-container-high border border-outline rounded-md p-3 text-on-surface focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none" placeholder="팀 이름을 입력하세요" type="text">
+                    </div>
+                </div>
+                <div class="flex justify-end mt-auto">
+                    <button class="bg-primary-container text-on-primary-container font-bold py-2.5 px-8 rounded-full shadow-[0px_4px_12px_rgba(0,255,194,0.2)] hover:bg-primary-fixed-dim active:scale-95 transition-all">
+                        신청 완료
+                    </button>
+                </div>
+            </article>
+            <!-- Card 2: Basketball -->
+            <article class="bg-surface-container-low rounded-xl p-stack-sm shadow-[0px_4px_20px_rgba(0,0,0,0.2)] flex flex-col justify-between border border-surface-container-high hover:border-primary-container transition-colors group cursor-pointer h-48">
+                <div>
+                    <div class="flex justify-between items-start mb-stack-sm">
+                        <div class="w-12 h-12 bg-surface-container rounded-full flex items-center justify-center text-secondary group-hover:bg-secondary-container group-hover:text-on-secondary-container transition-colors">
+                            <span class="material-symbols-outlined text-xl">sports_basketball</span>
+                        </div>
+                        <span class="bg-error-container text-on-error-container px-2 py-1 rounded-full font-label-caps text-label-caps">마감 임박</span>
+                    </div>
+                    <h2 class="font-headline-md text-headline-md text-on-background mb-base">농구 (혼성)</h2>
+                </div>
+                <div class="flex items-center justify-between mt-auto">
+                    <div class="flex flex-col gap-1 w-full mr-4">
+                        <div class="flex justify-between text-xs text-on-surface-variant w-full">
+                            <span class="">모집인원</span>
+                            <span class="">8/10</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+                            <div class="bg-primary-container h-full rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <!-- Card 3: Relay -->
+            <article class="bg-surface-container-low rounded-xl p-stack-sm shadow-[0px_4px_20px_rgba(0,0,0,0.2)] flex flex-col justify-between border border-surface-container-high hover:border-outline-variant transition-colors group cursor-pointer h-48">
+                <div>
+                    <div class="flex justify-between items-start mb-stack-sm">
+                        <div class="w-12 h-12 bg-surface-container rounded-full flex items-center justify-center text-tertiary-container group-hover:bg-tertiary-container group-hover:text-on-tertiary-container transition-colors">
+                            <span class="material-symbols-outlined text-xl">sprint</span>
+                        </div>
+                        <span class="bg-surface-container-high text-on-surface px-2 py-1 rounded-full font-label-caps text-label-caps">오후 2:00</span>
+                    </div>
+                    <h2 class="font-headline-md text-headline-md text-on-background mb-base">400m 계주</h2>
+                </div>
+                <div class="flex items-center justify-between mt-auto">
+                    <div class="flex flex-col gap-1 w-full mr-4">
+                        <div class="flex justify-between text-xs text-on-surface-variant w-full">
+                            <span class="">모집인원</span>
+                            <span class="">4/4</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+                            <div class="bg-tertiary-container h-full rounded-full" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <span class="text-sm text-on-surface-variant whitespace-nowrap">마감됨</span>
+                </div>
+            </article>
+        </div>
+    </main>
+</div>
+
+
+<div id="snapdom-sandbox" data-snapdom-sandbox="true" aria-hidden="true" style="position: absolute; left: -9999px; top: -9999px; width: 0px; height: 0px; overflow: hidden;"></div></body></html>
