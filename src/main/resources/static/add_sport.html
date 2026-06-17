@@ -3,8 +3,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>종목 추가 - School Sports Manager</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@100..900&amp;family=Lexend:wght@100..900&amp;family=JetBrains+Mono:wght@100..800&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@100..900&family=Lexend:wght@100..900&family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: #131313;
@@ -117,7 +117,6 @@
     </script>
 </head>
 <body class="bg-background text-on-background">
-<!-- SideNavBar -->
 <aside class="h-screen w-64 fixed left-0 top-0 bg-surface-container border-r border-outline-variant flex flex-col p-4 z-50">
     <div class="mb-10 px-2">
         <img alt="School Sports Manager Logo" class="h-10 w-auto mb-2" src="https://lh3.googleusercontent.com/aida/AP1WRLu8enxgvQP0DoTXUbXekkSuj_Ph8IJoyd6COPU3XISpqRY1XhUm5axOyGz6cdbvz12f-r4GxhdWp47LuKF1o-Ulb2GSFS-3GW_Fc7Ey8ptXdGSPnrs7cnXpx8e3PdXiw90gCtau2yfABr7JpIcLaMgIJYQYHZgsbIei7FHs70P34jptl-wPGObjYh5oXTQBy9Xzlomq_NYMbTao-bBWq70TaVTWZ8gtsp9hf0yEIjJ6jAJnzZZWnhcYWg">
@@ -144,7 +143,6 @@
         </div>
     </div>
 </aside>
-<!-- TopNavBar -->
 <header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 bg-background/80 backdrop-blur-md flex justify-between items-center px-gutter z-40">
     <div class="ml-4">
         <h2 class="font-headline-md text-primary-fixed tracking-tight">종목 추가</h2>
@@ -161,7 +159,6 @@
         </div>
     </div>
 </header>
-<!-- Main Content Area -->
 <main class="ml-64 pt-16 min-h-screen p-stack-lg relative overflow-hidden">
     <div class="absolute top-0 right-0 w-96 h-96 bg-primary-container/5 blur-[120px] rounded-full pointer-events-none"></div>
     <div class="absolute bottom-0 left-0 w-64 h-64 bg-secondary-container/10 blur-[100px] rounded-full pointer-events-none"></div>
@@ -180,7 +177,13 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="space-y-2">
                             <label class="font-label-caps text-on-surface-variant uppercase tracking-widest text-xs">카테고리</label>
-                            <select class="w-full bg-surface-container-lowest border-outline-variant text-on-surface p-4 rounded-lg input-focus-glow transition-all font-body-md appearance-none"><option>축구</option><option>농구</option><option>야구</option><option>계주</option></select>
+                            <select id="category" class="w-full bg-surface-container-lowest border-outline-variant text-on-surface p-4 rounded-lg input-focus-glow transition-all font-body-md appearance-none">
+                                <option value="1">축구</option>
+                                <option value="2">농구</option>
+                                <option value="3">야구</option>
+                                <option value="4">계주</option>
+                                <option value="5">기타</option>
+                            </select>
                         </div>
                         <div class="space-y-2">
                             <label class="font-label-caps text-on-surface-variant uppercase tracking-widest text-xs">최대 참가 인원</label>
@@ -223,19 +226,24 @@
 
         const sportName = document.getElementById('sportName').value;
         const maxMember = document.getElementById('maxMember').value;
+        const category = document.getElementById('category').value;
 
         fetch('http://localhost:8080/sports', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 sportName: sportName,
-                maxMember: parseInt(maxMember)
+                category: parseInt(category, 10),
+                maxMember: parseInt(maxMember, 10)
             })
         })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) throw new Error('서버 응답 오류');
+                return response.json();
+            })
             .then(data => {
                 alert('종목이 성공적으로 등록되었습니다.');
-                location.href = 'index.html';
+                location.href = 'index.html'; // 등록 완료 후 이동할 페이지
             })
             .catch(error => {
                 alert('등록 중 오류가 발생했습니다.');

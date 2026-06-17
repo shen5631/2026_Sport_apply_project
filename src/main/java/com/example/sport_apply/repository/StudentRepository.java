@@ -17,7 +17,7 @@ public class StudentRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    // 전체 조회
+
     public List<Student> findAll() {
         String sql = "SELECT * FROM student_table";
 
@@ -34,7 +34,7 @@ public class StudentRepository {
         });
     }
 
-    // 추가
+
     public Student save(Student student) {
         String sql = "INSERT INTO student_table (name, std_num, gender, grade, class_num, num) VALUES (?, ?, ?, ?, ?, ?)";
 
@@ -54,7 +54,7 @@ public class StudentRepository {
         return student;
     }
 
-    // 수정
+
     public void update(int studentId, Student student) {
         String sql = "UPDATE student_table SET name=?, std_num=?, gender=?, grade=?, class_num=?, num=? WHERE student_id=?";
         jdbcTemplate.update(sql,
@@ -63,7 +63,7 @@ public class StudentRepository {
                 studentId);
     }
 
-    // 삭제
+
     public void deleteById(int studentId) {
         String sql = "DELETE FROM student_table WHERE student_id = ?";
         jdbcTemplate.update(sql, studentId);

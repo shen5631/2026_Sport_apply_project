@@ -1,24 +1,19 @@
 package com.example.sport_apply.entity;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "sport_table")
 public class Sport {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int sportId;
-
     private String sportName;
+    private int category; // 카테고리 (1=축구, 2=농구 등)
     private int maxMember;
 
-    // Getter
     public int getSportId() { return sportId; }
     public String getSportName() { return sportName; }
+    public int getCategory() { return category; }
     public int getMaxMember() { return maxMember; }
 
-    // Setter (POST로 들어온 데이터를 채울 때 필요)
+    public void setSportId(int sportId) { this.sportId = sportId; }
     public void setSportName(String sportName) { this.sportName = sportName; }
+    public void setCategory(int category) { this.category = category; }
     public void setMaxMember(int maxMember) { this.maxMember = maxMember; }
 }
