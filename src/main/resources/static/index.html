@@ -125,161 +125,142 @@
                 <p class="text-on-surface-variant text-body-lg">원하는 스포츠 종목을 선택하고 팀을 구성하세요.</p>
             </div>
         </div>
+
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-stack-sm md:gap-stack-md items-start" id="sportsContainer">
-
-            <article class="sport-card bg-surface-container-low rounded-xl p-stack-md shadow-[0px_4px_20px_rgba(0,0,0,0.2)] border border-surface-container-high hover:border-primary-container transition-all group cursor-pointer col-span-1">
-                <div class="flex items-center gap-4">
-                    <div class="icon-box w-12 h-12 bg-surface-container rounded-full flex items-center justify-center text-on-surface-variant group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
-                        <span class="material-symbols-outlined text-xl">sports_soccer</span>
-                    </div>
-                    <div>
-                        <h2 class="font-headline-md text-headline-md text-on-background">축구 (남자부)</h2>
-                    </div>
-                </div>
-
-                <div class="action-area hidden mt-stack-md pt-stack-sm border-t border-surface-container-high">
-                    <div class="bg-surface-container rounded-lg p-stack-sm mb-stack-md">
-                        <div class="flex gap-6 mb-stack-sm border-b border-surface-container-high pb-3">
-                            <label class="flex items-center gap-2 cursor-pointer text-primary-container">
-                                <input checked class="text-primary-container focus:ring-primary-container bg-surface-container-high border-outline" name="team_mode_1" type="radio">
-                                <span class="font-bold">팀 추가 (Add Team)</span>
-                            </label>
-                            <label class="flex items-center gap-2 cursor-pointer text-on-surface-variant">
-                                <input class="text-primary-container focus:ring-primary-container bg-surface-container-high border-outline" name="team_mode_1" type="radio">
-                                <span>팀 선택 (Select Team)</span>
-                            </label>
-                        </div>
-                        <div class="mb-stack-sm pt-2">
-                            <label class="block text-sm font-medium text-on-surface-variant mb-2">팀 이름</label>
-                            <input class="w-full bg-surface-container-high border border-outline rounded-md p-3 text-on-surface focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none" placeholder="팀 이름을 입력하세요" type="text">
-                        </div>
-                    </div>
-                    <div class="flex justify-end mt-auto">
-                        <button class="bg-primary-container text-on-primary-container font-bold py-2.5 px-8 rounded-full shadow-[0px_4px_12px_rgba(0,255,194,0.2)] hover:bg-primary-fixed-dim active:scale-95 transition-all">
-                            신청 완료
-                        </button>
-                    </div>
-                </div>
-            </article>
-
-            <article class="sport-card bg-surface-container-low rounded-xl p-stack-md shadow-[0px_4px_20px_rgba(0,0,0,0.2)] border border-surface-container-high hover:border-primary-container transition-all group cursor-pointer col-span-1">
-                <div class="flex items-center gap-4">
-                    <div class="icon-box w-12 h-12 bg-surface-container rounded-full flex items-center justify-center text-on-surface-variant group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
-                        <span class="material-symbols-outlined text-xl">sports_basketball</span>
-                    </div>
-                    <div>
-                        <h2 class="font-headline-md text-headline-md text-on-background">농구 (혼성)</h2>
-                    </div>
-                </div>
-
-                <div class="action-area hidden mt-stack-md pt-stack-sm border-t border-surface-container-high">
-                    <div class="bg-surface-container rounded-lg p-stack-sm mb-stack-md">
-                        <div class="flex gap-6 mb-stack-sm border-b border-surface-container-high pb-3">
-                            <label class="flex items-center gap-2 cursor-pointer text-primary-container">
-                                <input checked class="text-primary-container focus:ring-primary-container bg-surface-container-high border-outline" name="team_mode_2" type="radio">
-                                <span class="font-bold">팀 추가 (Add Team)</span>
-                            </label>
-                            <label class="flex items-center gap-2 cursor-pointer text-on-surface-variant">
-                                <input class="text-primary-container focus:ring-primary-container bg-surface-container-high border-outline" name="team_mode_2" type="radio">
-                                <span>팀 선택 (Select Team)</span>
-                            </label>
-                        </div>
-                        <div class="mb-stack-sm pt-2">
-                            <label class="block text-sm font-medium text-on-surface-variant mb-2">팀 이름</label>
-                            <input class="w-full bg-surface-container-high border border-outline rounded-md p-3 text-on-surface focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none" placeholder="팀 이름을 입력하세요" type="text">
-                        </div>
-                    </div>
-                    <div class="flex justify-end mt-auto">
-                        <button class="bg-primary-container text-on-primary-container font-bold py-2.5 px-8 rounded-full shadow-[0px_4px_12px_rgba(0,255,194,0.2)] hover:bg-primary-fixed-dim active:scale-95 transition-all">
-                            신청 완료
-                        </button>
-                    </div>
-                </div>
-            </article>
-
-            <article class="sport-card bg-surface-container-low rounded-xl p-stack-md shadow-[0px_4px_20px_rgba(0,0,0,0.2)] border border-surface-container-high hover:border-primary-container transition-all group cursor-pointer col-span-1">
-                <div class="flex items-center gap-4">
-                    <div class="icon-box w-12 h-12 bg-surface-container rounded-full flex items-center justify-center text-on-surface-variant group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
-                        <span class="material-symbols-outlined text-xl">sprint</span>
-                    </div>
-                    <div>
-                        <h2 class="font-headline-md text-headline-md text-on-background">400m 계주</h2>
-                    </div>
-                </div>
-
-                <div class="action-area hidden mt-stack-md pt-stack-sm border-t border-surface-container-high">
-                    <div class="bg-surface-container rounded-lg p-stack-sm mb-stack-md">
-                        <div class="flex gap-6 mb-stack-sm border-b border-surface-container-high pb-3">
-                            <label class="flex items-center gap-2 cursor-pointer text-primary-container">
-                                <input checked class="text-primary-container focus:ring-primary-container bg-surface-container-high border-outline" name="team_mode_3" type="radio">
-                                <span class="font-bold">팀 추가 (Add Team)</span>
-                            </label>
-                            <label class="flex items-center gap-2 cursor-pointer text-on-surface-variant">
-                                <input class="text-primary-container focus:ring-primary-container bg-surface-container-high border-outline" name="team_mode_3" type="radio">
-                                <span>팀 선택 (Select Team)</span>
-                            </label>
-                        </div>
-                        <div class="mb-stack-sm pt-2">
-                            <label class="block text-sm font-medium text-on-surface-variant mb-2">팀 이름</label>
-                            <input class="w-full bg-surface-container-high border border-outline rounded-md p-3 text-on-surface focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none" placeholder="팀 이름을 입력하세요" type="text">
-                        </div>
-                    </div>
-                    <div class="flex justify-end mt-auto">
-                        <button class="bg-primary-container text-on-primary-container font-bold py-2.5 px-8 rounded-full shadow-[0px_4px_12px_rgba(0,255,194,0.2)] hover:bg-primary-fixed-dim active:scale-95 transition-all">
-                            신청 완료
-                        </button>
-                    </div>
-                </div>
-            </article>
-
+            <p class="text-on-surface-variant col-span-full text-center py-10">등록된 종목 정보를 불러오는 중입니다...</p>
         </div>
     </main>
 </div>
 
 <script>
-    // 아코디언 동작 스크립트
     document.addEventListener('DOMContentLoaded', () => {
-        const cards = document.querySelectorAll('.sport-card');
+        // 1. 페이지 로드시 백엔드에서 종목 리스트 가져오기
+        fetch('http://localhost:8080/sports')
+            .then(response => {
+                if (!response.ok) throw new Error('네트워크 응답 불안정');
+                return response.json();
+            })
+            .then(data => {
+                renderSportsCards(data);
+            })
+            .catch(error => {
+                console.error('조회 에러:', error);
+                document.getElementById('sportsContainer').innerHTML = `
+                    <p class="text-error col-span-full text-center py-10">데이터를 불러오지 못했습니다. 서버 상태를 확인해주세요.</p>
+                `;
+            });
 
-        cards.forEach(card => {
-            card.addEventListener('click', function(e) {
-                // 입력창이나 버튼 등 내부 요소(action-area)를 클릭했을 때는 창이 닫히지 않도록 방지
-                if(e.target.closest('.action-area')) return;
+        // 2. 아코디언 동작 스크립트 (이벤트 위임 방식 적용으로 동적 카드 대응)
+        const container = document.getElementById('sportsContainer');
+        container.addEventListener('click', function(e) {
+            const clickedCard = e.target.closest('.sport-card');
+            if (!clickedCard) return;
 
-                const isAlreadyExpanded = this.classList.contains('expanded');
+            // 입력창 내부 요소(action-area)를 누른 거라면 아코디언 토글 방지
+            if (e.target.closest('.action-area')) return;
 
-                // 1. 먼저 모든 카드를 닫기 상태로 초기화
-                cards.forEach(c => {
-                    c.classList.remove('expanded', 'md:col-span-2', 'lg:col-span-3', 'border-primary-container');
-                    c.classList.add('border-surface-container-high', 'col-span-1');
+            const cards = document.querySelectorAll('.sport-card');
+            const isAlreadyExpanded = clickedCard.classList.contains('expanded');
 
-                    const actionArea = c.querySelector('.action-area');
-                    if(actionArea) actionArea.classList.add('hidden');
+            // 모든 카드 초기화 (닫기)
+            cards.forEach(c => {
+                c.classList.remove('expanded', 'md:col-span-2', 'lg:col-span-3', 'border-primary-container');
+                c.classList.add('border-surface-container-high', 'col-span-1');
 
-                    const iconBox = c.querySelector('.icon-box');
-                    if(iconBox) {
-                        iconBox.classList.remove('bg-primary-container', 'text-on-primary-container');
-                        iconBox.classList.add('bg-surface-container', 'text-on-surface-variant');
-                    }
-                });
+                const actionArea = c.querySelector('.action-area');
+                if(actionArea) actionArea.classList.add('hidden');
 
-                // 2. 방금 클릭한 카드가 닫혀있던 상태라면 열어주기
-                if (!isAlreadyExpanded) {
-                    this.classList.add('expanded', 'md:col-span-2', 'lg:col-span-3', 'border-primary-container');
-                    this.classList.remove('border-surface-container-high', 'col-span-1');
-
-                    const actionArea = this.querySelector('.action-area');
-                    if(actionArea) actionArea.classList.remove('hidden');
-
-                    const iconBox = this.querySelector('.icon-box');
-                    if(iconBox) {
-                        iconBox.classList.add('bg-primary-container', 'text-on-primary-container');
-                        iconBox.classList.remove('bg-surface-container', 'text-on-surface-variant');
-                    }
+                const iconBox = c.querySelector('.icon-box');
+                if(iconBox) {
+                    iconBox.classList.remove('bg-primary-container', 'text-on-primary-container');
+                    iconBox.classList.add('bg-surface-container', 'text-on-surface-variant');
                 }
             });
+
+            // 클릭한 카드가 닫혀있었다면 열기
+            if (!isAlreadyExpanded) {
+                clickedCard.classList.add('expanded', 'md:col-span-2', 'lg:col-span-3', 'border-primary-container');
+                clickedCard.classList.remove('border-surface-container-high', 'col-span-1');
+
+                const actionArea = clickedCard.querySelector('.action-area');
+                if(actionArea) actionArea.classList.remove('hidden');
+
+                const iconBox = clickedCard.querySelector('.icon-box');
+                if(iconBox) {
+                    iconBox.classList.add('bg-primary-container', 'text-on-primary-container');
+                    iconBox.classList.remove('bg-surface-container', 'text-on-surface-variant');
+                }
+            }
         });
     });
+
+    // 카테고리 번호에 해당하는 구글 머티리얼 아이콘 마크 매칭 함수
+    function getIconByCategory(category) {
+        const catNum = parseInt(category, 10);
+        switch(catNum) {
+            case 1: return 'sports_soccer';       // 축구
+            case 2: return 'sports_basketball';   // 농구
+            case 3: return 'sports_baseball';     // 야구
+            case 4: return 'sprint';              // 계주
+            case 5: return 'more_horiz';          // 기타
+            default: return 'sports';             // 기본 마크
+        }
+    }
+
+    // 데이터를 바탕으로 화면에 카드들을 뿌려주는 함수
+    function renderSportsCards(sports) {
+        const container = document.getElementById('sportsContainer');
+        container.innerHTML = '';
+
+        if(sports.length === 0) {
+            container.innerHTML = '<p class="text-on-surface-variant col-span-full text-center py-10">등록된 종목이 없습니다.</p>';
+            return;
+        }
+
+        sports.forEach((sport, index) => {
+            const iconName = getIconByCategory(sport.category);
+            const uniqueId = sport.id || index; // 라디오 버튼 그룹 구분을 위한 고유 ID
+
+            const cardHtml = `
+                <article class="sport-card bg-surface-container-low rounded-xl p-stack-md shadow-[0px_4px_20px_rgba(0,0,0,0.2)] border border-surface-container-high hover:border-primary-container transition-all group cursor-pointer col-span-1">
+                    <div class="flex items-center gap-4">
+                        <div class="icon-box w-12 h-12 bg-surface-container rounded-full flex items-center justify-center text-on-surface-variant group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+                            <span class="material-symbols-outlined text-xl">${iconName}</span>
+                        </div>
+                        <div>
+                            <h2 class="font-headline-md text-headline-md text-on-background">${sport.sportName}</h2>
+                            <p class="text-xs text-on-surface-variant mt-1">최대 참가 인원: <span class="text-primary-container font-bold">${sport.maxMember}명</span></p>
+                        </div>
+                    </div>
+
+                    <div class="action-area hidden mt-stack-md pt-stack-sm border-t border-surface-container-high">
+                        <div class="bg-surface-container rounded-lg p-stack-sm mb-stack-md">
+                            <div class="flex gap-6 mb-stack-sm border-b border-surface-container-high pb-3">
+                                <label class="flex items-center gap-2 cursor-pointer text-primary-container">
+                                    <input checked class="text-primary-container focus:ring-primary-container bg-surface-container-high border-outline" name="team_mode_${uniqueId}" type="radio">
+                                    <span class="font-bold">팀 추가 (Add Team)</span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer text-on-surface-variant">
+                                    <input class="text-primary-container focus:ring-primary-container bg-surface-container-high border-outline" name="team_mode_${uniqueId}" type="radio">
+                                    <span>팀 선택 (Select Team)</span>
+                                </label>
+                            </div>
+                            <div class="mb-stack-sm pt-2">
+                                <label class="block text-sm font-medium text-on-surface-variant mb-2">팀 이름</label>
+                                <input class="w-full bg-surface-container-high border border-outline rounded-md p-3 text-on-surface focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none" placeholder="팀 이름을 입력하세요" type="text">
+                            </div>
+                        </div>
+                        <div class="flex justify-end mt-auto">
+                            <button class="bg-primary-container text-on-primary-container font-bold py-2.5 px-8 rounded-full shadow-[0px_4px_12px_rgba(0,255,194,0.2)] hover:bg-primary-fixed-dim active:scale-95 transition-all">
+                                신청 완료
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            `;
+            container.innerHTML += cardHtml;
+        });
+    }
 </script>
 </body>
 </html>
